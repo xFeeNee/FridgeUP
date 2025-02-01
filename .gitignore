@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Expo files
+.expo/
+
+# Logi
+*.log
+
+# Systemy operacyjne
+.DS_Store
+Thumbs.db
+
+# iOS
+ios/Pods/
+ios/build/
+
+# Android
+android/app/build/
+node_modules
