@@ -16,8 +16,9 @@ export default function QRScanner({ onScanned }) {
 
   const handleBarCodeScanned = ({ data }) => {
     setScanned(true);
-    onScanned(data);
-    alert(`Zeskanowano kod: ${data}`);
+    if (data) {
+      onScanned(data);
+    }
   };
 
   if (hasPermission === null) {

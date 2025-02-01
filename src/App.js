@@ -13,7 +13,11 @@ export default function App() {
     const fetchProducts = async () => {
       try {
         const storedProducts = await loadProducts();
-        setProducts(storedProducts);
+        if (Array.isArray(storedProducts)) {
+          setProducts(storedProducts);
+        } else {
+          setProducts([]);
+        }
       } catch (error) {
         console.error("Błąd podczas ładowania produktów:", error);
       }
@@ -22,9 +26,11 @@ export default function App() {
   }, []);
 
   const handleSaveProduct = async (product) => {
-    const updatedProducts = [...products, product];
-    setProducts(updatedProducts);
-    await saveProduct(updatedProducts);
+    if (product.name && product.quantity) {
+      const updatedProducts = [...products, product];
+      setProducts(updatedProducts);
+      await saveProduct(updatedProducts);
+    }
   };
 
   return (

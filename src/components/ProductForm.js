@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { TextInput, Button, StyleSheet, View } from "react-native";
+import { TextInput, Button, StyleSheet, View, Alert } from "react-native";
 
 export default function ProductForm({ onSave }) {
   const [productName, setProductName] = useState("");
   const [quantity, setQuantity] = useState("");
 
   const handleSubmit = () => {
+    if (productName.trim() === "" || quantity.trim() === "") {
+      Alert.alert("Błąd", "Proszę wypełnić wszystkie pola.");
+      return;
+    }
     onSave({ name: productName, quantity });
     setProductName("");
     setQuantity("");
