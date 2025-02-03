@@ -7,7 +7,8 @@
     "expo": "~52.0.28",
     "react": "18.3.1",
     "react-native": "0.76.6",
-    "@expo/vector-icons": "^14.0.2"
+    "@expo/vector-icons": "^14.0.2",
+    "expo-linear-gradient": "~14.0.2"
   },
   "name": "FridgeUP",
   "version": "1.0.0",
