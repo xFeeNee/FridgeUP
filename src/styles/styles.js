@@ -51,7 +51,8 @@ export default StyleSheet.create({
   },
 
   topBarText: {
-    color: "#FFFFFF",
+    color: "#F2F2F2",
+    top: 33,
     fontSize: 20,
     fontWeight: "bold",
   },

@@ -62,7 +62,7 @@ export default function App() {
       </Modal>
 
       <View style={styles.topBar}>
-        <Text style={styles.topBarText}>Główny Ekran</Text>
+        <Text style={styles.topBarText}>Wybierz co chcesz zrobić</Text>
         <ShoppingListIcon
           onPress={() => console.log("Kliknięto ikonę listy zakupów")}
         />
