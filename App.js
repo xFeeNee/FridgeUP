@@ -8,6 +8,7 @@ import {
   createPanResponder,
 } from "./src/utils/functions";
 import { AntDesign } from "@expo/vector-icons";
+import ShoppingListIcon from "./src/components/Icons";
 
 export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(true);
@@ -62,6 +63,9 @@ export default function App() {
 
       <View style={styles.topBar}>
         <Text style={styles.topBarText}>Główny Ekran</Text>
+        <ShoppingListIcon
+          onPress={() => console.log("Kliknięto ikonę listy zakupów")}
+        />
       </View>
     </View>
   );
