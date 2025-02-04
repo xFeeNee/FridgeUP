@@ -8,7 +8,13 @@ import {
   createPanResponder,
 } from "./src/utils/functions";
 import { AntDesign } from "@expo/vector-icons";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ShoppingListIcon from "./src/components/Icons";
+import ShoppingListScreen from "./screens/ShoppingListScreen";
+import SwipeIndicator from "./src/components/SwipeIndicators";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isModalVisible, setIsModalVisible] = useState(true);
@@ -28,45 +34,39 @@ export default function App() {
   );
 
   return (
-    <View style={styles.container}>
-      <Modal visible={isModalVisible} transparent={true} animationType="none">
-        <Animated.View
-          style={[styles.container, { transform: [{ translateX }] }]}
-          {...panResponder.panHandlers}
-        >
-          <Text style={styles.text} onPress={handleButtonPress}>
-            🍔 Co dziś zjemy? 🍔
-          </Text>
-          <Animated.View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              transform: [{ translateX: slidingAnimation }],
-            }}
-          >
-            <AntDesign
-              name="arrowleft"
-              size={35}
-              color="#FFFFFF"
-              style={styles.arrowIcon}
-            />
-            <Text style={styles.swipeText}>Przewiń</Text>
-            <AntDesign
-              name="arrowleft"
-              size={35}
-              color="#FFFFFF"
-              style={styles.arrowIcon}
-            />
-          </Animated.View>
-        </Animated.View>
-      </Modal>
-
-      <View style={styles.topBar}>
-        <Text style={styles.topBarText}>Wybierz co chcesz zrobić</Text>
-        <ShoppingListIcon
-          onPress={() => console.log("Kliknięto ikonę listy zakupów")}
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" options={{ headerShown: false }}>
+          {({ navigation }) => (
+            <View style={styles.container}>
+              <Modal
+                visible={isModalVisible}
+                transparent={true}
+                animationType="fade"
+              >
+                <Animated.View
+                  style={[styles.container, { transform: [{ translateX }] }]}
+                  {...panResponder.panHandlers}
+                >
+                  <Text style={styles.text}>🍔 Co dziś zjemy? 🍔</Text>
+                  <SwipeIndicator />
+                </Animated.View>
+              </Modal>
+              <View style={styles.topBar}>
+                <Text style={styles.topBarText}>Wybierz co chcesz zrobić</Text>
+                <ShoppingListIcon
+                  onPress={() => navigation.navigate("ShoppingList")}
+                />
+              </View>
+            </View>
+          )}
+        </Stack.Screen>
+        <Stack.Screen
+          name="ShoppingList"
+          component={ShoppingListScreen}
+          options={{ title: "Lista Zakupów" }}
         />
-      </View>
-    </View>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
