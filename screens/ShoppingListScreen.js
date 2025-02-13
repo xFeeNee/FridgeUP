@@ -68,6 +68,7 @@ export default function ShoppingListScreen({ navigation }) {
             <TextInput
               style={styles.input}
               placeholder="Wpisz produkt..."
+              placeholderTextColor={"#666"}
               value={newItem}
               onChangeText={setNewItem}
             />
