@@ -9,17 +9,16 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import useTopBarNavigation from "../navigation/TopBarNavigation";
-import ShoppingItem from "../components/ShoppingItem";
+import ShoppingItem from "../src/components/ShoppingItem";
 import styles from "../src/styles/styles";
 
 export default function ShoppingListScreen({ navigation }) {
   useTopBarNavigation(navigation, "Lista zakupów");
 
-  const [items, setItems] = useState([]); // Lista zakupów
+  const [items, setItems] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [newItem, setNewItem] = useState("");
 
-  // Dodanie nowej pozycji do listy
   const addItem = () => {
     if (newItem.trim() !== "") {
       setItems([
@@ -31,7 +30,6 @@ export default function ShoppingListScreen({ navigation }) {
     }
   };
 
-  // Przełączanie stanu checkboxa
   const toggleItem = (id) => {
     setItems(
       items.map((item) =>
@@ -40,7 +38,6 @@ export default function ShoppingListScreen({ navigation }) {
     );
   };
 
-  // Dodanie ikonki "+" do topbara
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -56,7 +53,6 @@ export default function ShoppingListScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* Lista zakupów */}
       <FlatList
         data={items}
         keyExtractor={(item) => item.id}
@@ -65,7 +61,6 @@ export default function ShoppingListScreen({ navigation }) {
         )}
       />
 
-      {/* Modal dodawania nowego elementu */}
       <Modal visible={modalVisible} transparent={true} animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
