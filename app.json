@@ -1,5 +1,27 @@
 {
-  "android": {
-    "package": "com.anonymous.fridgeup"
+  "expo": {
+    "name": "FridgeUp",
+    "slug": "fridgeup",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android"],
+    "newArchEnabled": true,
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.anonymous.fridgeup",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/AppIcon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/AppIcon.png"
+    }
   }
 }

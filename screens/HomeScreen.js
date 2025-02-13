@@ -23,7 +23,7 @@ export default function HomeScreen({ navigation }) {
         translateX={translateX}
         panResponder={panResponder}
       />
-      <View style={styles.topBar}>
+      <View style={styles.headerStyle}>
         <Text style={styles.topBarText}>Wybierz co chcesz zrobić</Text>
         <ShoppingListIcon onPress={() => navigation.navigate("ShoppingList")} />
       </View>

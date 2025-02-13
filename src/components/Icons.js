@@ -14,8 +14,10 @@ export default function ShoppingListIcon({ onPress }) {
 
 const styles = StyleSheet.create({
   iconContainer: {
-    marginTop: 50,
-    padding: 10,
+    position: "absolute",
+    marginTop: 0,
+    top: 100,
+    left: 10,
     alignSelf: "flex-start",
   },
   iconImage: {

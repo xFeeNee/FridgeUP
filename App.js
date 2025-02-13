@@ -7,11 +7,7 @@ import ShoppingListScreen from "./screens/ShoppingListScreen";
 export default function App() {
   const screens = [
     { name: "Home", component: HomeScreen, options: { headerShown: false } },
-    {
-      name: "ShoppingList",
-      component: ShoppingListScreen,
-      options: { title: "Lista Zakupów" },
-    },
+    { name: "ShoppingList", component: ShoppingListScreen },
   ];
 
   return (
