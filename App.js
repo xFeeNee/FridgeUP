@@ -1,6 +1,6 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import Navigation from "./navigation/Navigation";
+import Navigation from "./navigation/MainScreenNavigation";
 import HomeScreen from "./screens/HomeScreen";
 import ShoppingListScreen from "./screens/ShoppingListScreen";
 
